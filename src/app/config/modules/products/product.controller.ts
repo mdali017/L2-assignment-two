@@ -18,7 +18,12 @@ const createProduct = async (req: Request, res: Response) => {
 // get all products
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductService.getAllProductsFromDB();
+    // for searching
+    // /api/products?searchTerm=iphone
+    const searchTerm = req.query.searchTerm?.toLowerCase();
+    console.log(searchTerm);
+
+    const result = await ProductService.getAllProductsFromDB(searchTerm);
     res.status(200).json({
       success: true,
       message: 'Products are retrieved succesfully',
