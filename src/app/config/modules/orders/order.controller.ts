@@ -25,11 +25,14 @@ const getAllOrder = async (req: Request, res: Response) => {
     const result = await OrderService.getAllOrderFromDB(filter);
     res.status(200).json({
       success: true,
-      message: 'Order create successfully',
+      message: 'All Order Retrieved successfully',
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Order not found',
+    });
   }
 };
 
