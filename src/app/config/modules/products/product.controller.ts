@@ -13,13 +13,13 @@ const createProduct = async (req: Request, res: Response) => {
     const { error, value } = ProductValidationSchema.validate(product);
     // console.log(error, value);
 
-    if (error) {
-      res.status(500).json({
-        success: true,
-        message: 'Something went wrong !',
-        error: error.details,
-      });
-    }
+    // if (error) {
+    //   res.status(500).json({
+    //     success: true,
+    //     message: 'Something went wrong !',
+    //     error: error.details,
+    //   });
+    // }
 
     // joi validate end
 
